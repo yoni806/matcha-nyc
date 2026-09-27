@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KISSA MATCHA NYC | Ceremonial Matcha & Modern Ritual</title>
+  <meta name="description" content="Ceremonial grade Japanese matcha crafted for New York. Flagships in SoHo and West Village.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F5F0;
+      --surface: #FFFFFF;
+      --surface-tint: #F2EDE4;
+      --text: #191B1A;
+      --text-muted: #5E6561;
+      --matcha-deep: #1B3524;
+      --matcha-leaf: #3D6142;
+      --matcha-bright: #7A9E58;
+      --matcha-light: #EBF1E5;
+      --accent: #C7825A;
+      --border: rgba(25, 27, 26, 0.08);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 4px 20px rgba(0,0,0,0.04);
+      --shadow-md: 0 12px 36px rgba(0,0,0,0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Announcement Banner */
+    .top-bar {
+      background-color: var(--matcha-deep);
+      color: #E6EDE5;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 16px;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(248, 245, 240, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--matcha-deep);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-badge {
+      width: 8px;
+      height: 8px;
+      background-color: var(--matcha-bright);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--matcha-deep);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 12px 24px;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--matcha-deep);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(27, 53, 36, 0.18);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--matcha-leaf);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--matcha-deep);
+      color: var(--matcha-deep);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--matcha-deep);
+      color: #FFFFFF;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: var(--matcha-light);
+      color: var(--matcha-leaf);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 64px;
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--matcha-deep);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--matcha-leaf);
+      font-weight: 400;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    .stat-item h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--matcha-deep);
+    }
+
+    .stat-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-img-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .hero-img-card img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--surface);
+      padding: 18px 22px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      max-width: 250px;
+    }
+
+    .hero-badge-float span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--matcha-bright);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-badge-float strong {
+      font-size: 13px;
+      color: var(--matcha-deep);
+      line-height: 1.4;
+      display: block;
+    }
+
+    /* Pillars */
+    .section-pillars {
+      padding: 80px 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .pillar-card {
+      padding: 32px;
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--matcha-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--matcha-deep);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .pillar-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Menu Section */
+    .section-menu {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header .sub {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--matcha-leaf);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      color: var(--matcha-deep);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .menu-item {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .menu-img {
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .menu-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .menu-item:hover .menu-img img {
+      transform: scale(1.04);
+    }
+
+    .menu-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--matcha-deep);
+    }
+
+    .menu-content {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .menu-title-row h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--matcha-deep);
+    }
+
+    .price {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--matcha-leaf);
+    }
+
+    .menu-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .menu-ingredients {
+      font-size: 12px;
+      color: var(--matcha-leaf);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      font-weight: 500;
+    }
+
+    /* Locations Section */
+    .section-locations {
+      padding: 100px 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .location-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      background: var(--bg);
+      position: relative;
+    }
+
+    .location-badge {
+      display: inline-block;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--matcha-bright);
+      margin-bottom: 12px;
+    }
+
+    .location-card h3 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: var(--matcha-deep);
+      margin-bottom: 12px;
+    }
+
+    .location-card address {
+      font-style: normal;
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .location-card .hours {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .hours-line {
+      display: flex;
+      justify-content: space-between;
+      max-width: 320px;
+      padding: 4px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    /* Testimonial / Press */
+    .section-press {
+      padding: 90px 0;
+      background: var(--matcha-deep);
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .press-quote {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-style: italic;
+      line-height: 1.4;
+      max-width: 860px;
+      margin: 0 auto 28px;
+      font-weight: 400;
+    }
+
+    .press-author {
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--matcha-bright);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: #141A16;
+      color: #A0ABA4;
+      padding: 80px 0 40px;
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand .logo {
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      color: #FFFFFF;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a:hover {
+      color: #FFFFFF;
+    }
+
+    .newsletter-form {
+      display: flex;
+      margin-top: 16px;
+    }
+
+    .newsletter-input {
+      background: #202722;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px 0 0 999px;
+      padding: 12px 18px;
+      color: #FFF;
+      font-size: 14px;
+      outline: none;
+      flex: 1;
+    }
+
+    .newsletter-btn {
+      background: var(--matcha-bright);
+      color: #141A16;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 0 999px 999px 0;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 968px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .hero h1 {
+        font-size: 46px;
+      }
+      .pillars-grid, .menu-grid, .locations-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="top-bar">
+    ✨ Now Open: Our New West Village Tea Sanctuary on Waverly Place | Whisking Masterclasses Every Saturday
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        KISSA MATCHA
+        <span class="logo-badge"></span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">Philosophy</a></li>
+          <li><a href="#menu">Signatures</a></li>
+          <li><a href="#locations">Sanctuaries</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="#locations" class="btn btn-outline">Find a Bar</a>
+        <a href="#menu" class="btn btn-primary">Order Pickup</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-tag">🌱 First Flush • Uji & Kagoshima Single Origin</span>
+        <h1>Ceremonial matcha, <em>reimagined</em> for New York.</h1>
+        <p>
+          Slow stone-ground Japanese green tea leaves meet the pace of Manhattan. Crafted with pure mountain spring water, artisanal house plant milks, and an obsession with vibrant, clean energy.
+        </p>
+        <div class="hero-cta">
+          <a href="#menu" class="btn btn-primary">Explore The Menu</a>
+          <a href="#locations" class="btn btn-outline">Visit Our Cafés</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Single Origin Shade-Grown</p>
+          </div>
+          <div class="stat-item">
+            <h3>800+</h3>
+            <p>Years of Kyoto Heritage</p>
+          </div>
+          <div class="stat-item">
+            <h3>2</h3>
+            <p>Downtown NYC Sanctuaries</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-card">
+          <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=1200&q=80" alt="Fresh whisked iced ceremonial matcha latte in New York">
+        </div>
+        <div class="hero-badge-float">
+          <span>Daily Whisk Ritual</span>
+          <strong>Hand-whisked to order with 100-prong bamboo chasen</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars Section -->
+  <section class="section-pillars" id="about">
+    <div class="container pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">🍵</div>
+        <h3>Ceremonial Grade Only</h3>
+        <p>Harvested only during early May’s Ichibancha (first flush). Hand-picked leaves de-veined to pure tencha before gentle granite-stone milling.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">⚡</div>
+        <h3>Clean Sustained Energy</h3>
+        <p>High L-theanine concentration creates calm, focused alertness for 6 hours — zero jitters, zero crash, tailored for the NYC pace.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🌾</div>
+        <h3>House-Pressed Milks</h3>
+        <p>Small-batch organic sprouted almond and roasted oat milks formulated specially to elevate, never overpower, the delicate umami notes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Menu -->
+  <section class="section-menu" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub">The Bar Offerings</span>
+        <h2>Curated for the Modern Palate</h2>
+        <p>Each drink is prepared to order using authentic bamboo whisks and filtered alkaline water.</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-img">
+            <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=800&q=80" alt="Pure Ceremonial Matcha Usucha">
+            <span class="menu-tag">Purist</span>
+          </div>
+          <div class="menu-content">
+            <div class="menu-title-row">
+              <h3>Traditional Usucha</h3>
+              <span class="price">$7.50</span>
+            </div>
+            <p class="menu-desc">Pure ceremonial grade matcha whisked with 80°C hot spring water. Delicate jade foam, velvety texture, sweet umami finish.</p>
+            <div class="menu-ingredients">Notes: Sweet grass, edamame, roasted chestnut</div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-img">
+            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Iced Vanilla Cloud Matcha Latte">
+            <span class="menu-tag">NYC Favorite</span>
+          </div>
+          <div class="menu-content">
+            <div class="menu-title-row">
+              <h3>Madagascar Cloud Latte</h3>
+              <span class="price">$9.00</span>
+            </div>
+            <p class="menu-desc">First-flush matcha poured over house-made organic oat milk and topped with cold-whipped Bourbon vanilla cream foam.</p>
+            <div class="menu-ingredients">Notes: Vanilla orchid, silky cream, vibrant green tea</div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-img">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="Strawberry Infused Matcha Latte">
+            <span class="menu-tag">Seasonal</span>
+          </div>
+          <div class="menu-content">
+            <div class="menu-title-row">
+              <h3>Hudson Valley Strawberry</h3>
+              <span class="price">$9.50</span>
+            </div>
+            <p class="menu-desc">Slow-reduced local organic strawberries, chilled oat milk, layered beneath vibrant Kagoshima ceremonial matcha.</p>
+            <div class="menu-ingredients">Notes: Tart berry sweetness, floral undertones</div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-img">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Roasted Houjicha Cold Foam">
+            <span class="menu-tag">Low Caffeine</span>
+          </div>
+          <div class="menu-content">
+            <div class="menu-title-row">
+              <h3>Toasted Houjicha Amber</h3>
+              <span class="price">$8.50</span>
+            </div>
+            <p class="menu-desc">Charcoal-roasted green tea leaves infused with cinnamon and brown sugar notes, capped with Himalayan salted cream.</p>
+            <div class="menu-ingredients">Notes: Caramel, smoky hazelnut, sea salt</div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-img">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Matcha Yuzu Canelé">
+            <span class="menu-tag">Bakery</span>
+          </div>
+          <div class="menu-content">
+            <div class="menu-title-row">
+              <h3>Matcha Yuzu Canelé</h3>
+              <span class="price">$5.50</span>
+            </div>
+            <p class="menu-desc">Caramelized crunchy crust with a custardy, deep green tea center infused with aromatic Kochi yuzu zest.</p>
+            <div class="menu-ingredients">Baked fresh every morning in Lower Manhattan</div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-img">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Black Sesame Matcha Cookie">
+            <span class="menu-tag">Bakery</span>
+          </div>
+          <div class="menu-content">
+            <div class="menu-title-row">
+              <h3>Black Sesame Sable</h3>
+              <span class="price">$4.75</span>
+            </div>
+            <p class="menu-desc">Rich roasted black sesame dough filled with a molten white chocolate ceremonial matcha ganache center.</p>
+            <div class="menu-ingredients">Gluten-free, refined sugar free</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press Quote -->
+  <section class="section-press">
+    <div class="container">
+      <p class="press-quote">
+        “KISSA has redefined the morning ritual in downtown Manhattan — an uncompromising masterclass in Japanese tea culture without the pretension.”
+      </p>
+      <div class="press-author">— The New York Times Dining & Culture</div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section class="section-locations" id="locations">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub">Find Us Downtown</span>
+        <h2>Two NYC Sanctuaries</h2>
+        <p>Minimalist spaces designed in collaboration with Kyoto artisans for quiet reflection amidst the city.</p>
+      </div>
+
+      <div class="locations-grid">
+        <div class="location-card">
+          <span class="location-badge">Flagship Sanctuary</span>
+          <h3>SoHo / Nolita</h3>
+          <address>
+            42 Prince Street (between Mulberry & Mott)<br>
+            New York, NY 10012
+          </address>
+          <div class="hours">
+            <div class="hours-line">
+              <span>Monday – Friday</span>
+              <strong>7:30 AM – 6:30 PM</strong>
+            </div>
+            <div class="hours-line">
+              <span>Saturday – Sunday</span>
+              <strong>8:00 AM – 7:00 PM</strong>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline">Directions & Map</a>
+        </div>
+
+        <div class="location-card">
+          <span class="location-badge">Tea Room & Garden</span>
+          <h3>West Village</h3>
+          <address>
+            182 Waverly Place (near Christopher St)<br>
+            New York, NY 10014
+          </address>
+          <div class="hours">
+            <div class="hours-line">
+              <span>Monday – Friday</span>
+              <strong>8:00 AM – 6:00 PM</strong>
+            </div>
+            <div class="hours-line">
+              <span>Saturday – Sunday</span>
+              <strong>8:30 AM – 7:00 PM</strong>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline">Directions & Map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            KISSA MATCHA
+            <span class="logo-badge"></span>
+          </div>
+          <p>Direct farm-to-cup ceremonial Japanese green tea bar in New York City. Sourced with honor, whisked with passion.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sanctuaries</h4>
+          <ul>
+            <li><a href="#locations">SoHo / Nolita</a></li>
+            <li><a href="#locations">West Village</a></li>
+            <li><a href="#locations">Private Tastings</a></li>
+            <li><a href="#locations">Catering & Pop-ups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ritual</h4>
+          <ul>
+            <li><a href="#about">Our Farmers in Uji</a></li>
+            <li><a href="#menu">Ceremonial Grade</a></li>
+            <li><a href="#about">Health & L-Theanine</a></li>
+            <li><a href="#menu">Whisking Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Join The Circle</h4>
+          <p>Receive private tea drop invitations, seasonal recipes and neighborhood news.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to KISSA MATCHA NYC.');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 KISSA MATCHA NYC LLC. All rights reserved.</div>
+        <div>Designed for Manhattan • Handcrafted in Kyoto</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
